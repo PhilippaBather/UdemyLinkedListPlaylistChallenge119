@@ -4,5 +4,5 @@ My solution to the Java Programming Masterclass for Software Developers course u
 
 The application simulates the functions of a music player:
 - add records (artist, title, ArrayList of Songs) to an ArrayList of albums
-- create a playlist of songs within a LinkedList
+- create a playlist of songs to a LinkedList
 - simulate play functions of playlist: play, skip forward, skip backwards, and remove
