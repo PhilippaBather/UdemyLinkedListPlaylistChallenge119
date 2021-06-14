@@ -130,11 +130,10 @@ public class Menu {
         System.out.println("Enter artist:");
         String artist = scanner.nextLine().toUpperCase();
         System.out.println("Enter song name:");
-        String name = scanner.nextLine().toUpperCase();
+        String title = scanner.nextLine().toUpperCase();
         // check song exists
-        Song song = albums.checkArtistExists(artist, name);
+        Song song = albums.checkTrackExists(artist, title);
 
-        //boolean isAdded = playList.addSong(artist, name);
         if (song != null) {
             playList.addSong(song);
             System.out.println("Song successfully added to playlist");

@@ -1,13 +1,13 @@
 package domain;
 
 /**
- * Template for songs to be contained within object of album class.
+ * Template for songs to be contained within object of record class.
  */
 public class Song {
 
     // instance fields
-    private String title;
-    private double duration;
+    private final String title;
+    private final double duration;
 
     // constructor
     public Song(String title, double duration) {
@@ -21,18 +21,6 @@ public class Song {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public double getDuration() {
-        return duration;
-    }
-
-    public void setDuration(double duration) {
-        this.duration = duration;
-    }
-
     // other methods
 
     public static Song createSong(String title, double duration) {
@@ -41,6 +29,6 @@ public class Song {
 
     @Override
     public String toString() {
-        return "\n" + this.title + " : " + this.duration;
+        return this.title + " : " + this.duration;
     }
 }

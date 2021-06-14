@@ -11,11 +11,8 @@ import java.util.Scanner;
  */
 public class PlayList {
 
-    // member fields
-    //private static final Albums albums = new Albums();
-
     // instance fields
-    LinkedList<Song> playlist;
+    private final LinkedList<Song> playlist;
 
     // constructor
 
@@ -23,21 +20,11 @@ public class PlayList {
         this.playlist = new LinkedList<>();
     }
 
-    // getters and setters
-
-    public LinkedList<Song> getPlaylist() {
-        return playlist;
-    }
-
-    public void setPlaylist(LinkedList<Song> playlist) {
-        this.playlist = playlist;
-    }
-
-
     // other methods
 
     /**
      * Adds a song to the playlist.
+     * @param song to be added
      */
     public void addSong(Song song) {
         playlist.add(song);

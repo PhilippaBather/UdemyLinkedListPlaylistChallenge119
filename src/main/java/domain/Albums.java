@@ -66,9 +66,9 @@ public class Albums {
      * @param title of song
      * @return boolean isArtist
      */
-    public Song checkArtistExists(String artist, String title) {
+    public Song checkTrackExists(String artist, String title) {
         for (Record record :
-             this.albumsList) {
+                this.albumsList) {
             if (record.getArtist().equals(artist)) {
                 return record.checkSongExists(title);
             }

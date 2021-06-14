@@ -11,9 +11,9 @@ public class Record {
     private static final Scanner scanner = new Scanner(System.in);
 
     // instance fields
-    private String artist;
-    private String name;
-    private ArrayList<Song> record;
+    private final String artist;
+    private final String name;
+    private final ArrayList<Song> record;
 
     // constructor
     public Record(String artist, String name) {
@@ -28,24 +28,8 @@ public class Record {
         return artist;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public ArrayList<Song> getRecord() {
-        return record;
-    }
-
-    public void setRecord(ArrayList<Song> record) {
-        this.record = record;
     }
 
     // other methods
