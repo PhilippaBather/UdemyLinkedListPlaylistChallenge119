@@ -45,6 +45,7 @@ public class Menu {
                     break;
                 case "6":
                     playlistMenu();
+                    playList.playMusic();
                     break;
                 case "x":
                     exit = true;
@@ -52,7 +53,6 @@ public class Menu {
                 default:
                     System.out.println("Menu option not recognised.");
             }
-
         } while (!exit);
 
     }
@@ -69,7 +69,7 @@ public class Menu {
         System.out.println("5. List playlist");
         System.out.println("6. Open play music menu");
         System.out.println("x. Quit");
-        System.out.println("\n Choose option:");
+        System.out.println("Choose option:");
     }
 
     /**
@@ -77,13 +77,12 @@ public class Menu {
      */
     public static void playlistMenu() {
         System.out.println("\n*****\t\t\tPlayList Options\t\t\t*****");
-        System.out.println("1. Skip forward to next song");
+        System.out.println("1. Skip forwards to next song");
         System.out.println("2. Skip backwards to previous song");
-        System.out.println("3. Remove current song");
+        System.out.println("3. Replay current song");
+        System.out.println("4. Remove current song");
         System.out.println("x. Quit");
         System.out.println("\n Choose option:");
-
-        playList.playMusic();
     }
 
     /**

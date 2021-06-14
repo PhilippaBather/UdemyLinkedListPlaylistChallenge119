@@ -2,6 +2,7 @@ package domain;
 
 import com.philippa.Menu;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Scanner;
@@ -10,6 +11,10 @@ import java.util.Scanner;
  * Class defines a playlist contained of songs within an album object of Album class.
  */
 public class PlayList {
+
+    // member fields
+    private static final String START_PLAYLIST = "Now at the start of the playlist.";
+    private static final String NOW_PLAYING = "Now playing...";
 
     // instance fields
     private final LinkedList<Song> playlist;
@@ -35,9 +40,10 @@ public class PlayList {
      */
     public void listSongs() {
         System.out.println("==========\t\tPLAYLIST\t\t==========");
-        ListIterator<Song> listIterator = playlist.listIterator();
-        while (listIterator.hasNext()) {
-            System.out.println(listIterator.next().toString());
+        // replaced ListIterator with iterator as no need to go backwards through the list.
+        Iterator<Song> iterator = playlist.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
         System.out.println("==========================================");
     }
@@ -49,12 +55,13 @@ public class PlayList {
     public void playMusic() {
         Scanner scanner = new Scanner(System.in);
         boolean quit = false;
+        boolean forward = true;
         ListIterator<Song> listIterator = playlist.listIterator();
 
         if (playlist.isEmpty()) {
             System.out.println("Playlist  is empty; add songs at MAIN MENU.");
         } else {
-            System.out.println("Now playing... " + listIterator.next());
+            System.out.println("\n" + NOW_PLAYING + listIterator.next());
         }
 
         while(!quit) {
@@ -63,21 +70,52 @@ public class PlayList {
                 case "0":
                     Menu.playlistMenu();
                     break;
-                case "1":
+                case "1":       // skip forwards to next song
+                    if (!forward) {
+                        if (listIterator.hasNext()) {
+                            listIterator.next();
+                        }
+                        forward = true;
+                    }
                     if (listIterator.hasNext()) {
-                        System.out.println("Now playing..." + listIterator.next());
+                        System.out.println(NOW_PLAYING + listIterator.next());
                     } else {
-                        System.out.println("Reached end of playlist.");
+                        System.out.println("Reach end of playlist");
+                        forward = false;
                     }
                     break;
-                case "2":
+                case "2":       // skip backwards to previous song
+                    if (forward) {
+                        if (listIterator.hasPrevious()) {
+                            listIterator.previous();
+                        }
+                        forward = false;
+                    }
                     if (listIterator.hasPrevious()) {
-                        System.out.println("Now playing..." + listIterator.previous());
+                        System.out.println(NOW_PLAYING + listIterator.previous());
                     } else {
-                        System.out.println("Now at the start of the playlist.");
+                        System.out.println(START_PLAYLIST);
+                        forward = true;
                     }
                     break;
-                case "3":
+                case "3":  // replay current track
+                    if (forward) {
+                        if (listIterator.hasPrevious()) {
+                            System.out.println("Now replaying " + listIterator.previous());
+                            forward = false;
+                        } else {
+                            System.out.println(START_PLAYLIST);
+                        }
+                    } else {
+                        if (listIterator.hasNext()) {
+                            System.out.println("Now replaying " + listIterator.next());
+                            forward = true;
+                        } else {
+                            System.out.println("Reached end of the list.");
+                        }
+                    }
+                    break;
+                case "4":
                     if (!listIterator.hasPrevious()) {
                         listIterator.next();
                         listIterator.remove();
@@ -96,9 +134,7 @@ public class PlayList {
                 default:
                     System.out.println("Menu option not recognised.");
             }
-            System.out.println("Enter 0 for playlist play options.");
+            System.out.println("\nEnter 0 for playlist play options.");
         }
-        Menu.executeMainMenu();
     }
-
 }
