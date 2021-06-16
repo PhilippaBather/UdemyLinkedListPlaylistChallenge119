@@ -1,4 +1,4 @@
-"# UemyLinkedListPlaylistChallenge"
+"# UdemyLinkedListPlaylistChallenge"
 
 My solution to the Java Programming Masterclass for Software Developers course unit Section 8 Chapter 119 LinkedList Challenge Exercise (Codign Exercise 46: Playlist).
 
