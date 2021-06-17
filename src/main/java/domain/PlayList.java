@@ -2,10 +2,7 @@ package domain;
 
 import com.philippa.Menu;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Class defines a playlist contained of songs within an album object of Album class.
@@ -17,7 +14,7 @@ public class PlayList {
     private static final String NOW_PLAYING = "Now playing...";
 
     // instance fields
-    private final LinkedList<Song> playlist;
+    private final List<Song> playlist;
 
     // constructor
 

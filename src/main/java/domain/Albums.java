@@ -1,11 +1,12 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Albums {
 
     // instance fields
-    private final ArrayList<Record> albumsList;
+    private final List<Record> albumsList;
 
     // constructor
 

@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static com.philippa.ValidateDouble.validateDouble;
@@ -13,7 +14,7 @@ public class Record {
     // instance fields
     private final String artist;
     private final String name;
-    private final ArrayList<Song> record;
+    private final List<Song> record;
 
     // constructor
     public Record(String artist, String name) {
